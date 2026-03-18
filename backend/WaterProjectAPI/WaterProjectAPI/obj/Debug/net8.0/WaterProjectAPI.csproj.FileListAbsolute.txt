@@ -65,3 +65,4 @@
 /Users/gnelman/Documents/BYU/IS JUNIOR CORE/Winter 2026/IS 413 - Application Dev/Mission 11/Mission 11 Videos/WaterProject/backend/WaterProjectAPI/WaterProjectAPI/obj/Debug/net8.0/WaterProjectAPI.pdb
 /Users/gnelman/Documents/BYU/IS JUNIOR CORE/Winter 2026/IS 413 - Application Dev/Mission 11/Mission 11 Videos/WaterProject/backend/WaterProjectAPI/WaterProjectAPI/obj/Debug/net8.0/WaterProjectAPI.genruntimeconfig.cache
 /Users/gnelman/Documents/BYU/IS JUNIOR CORE/Winter 2026/IS 413 - Application Dev/Mission 11/Mission 11 Videos/WaterProject/backend/WaterProjectAPI/WaterProjectAPI/obj/Debug/net8.0/ref/WaterProjectAPI.dll
+/Users/gnelman/Documents/BYU/IS JUNIOR CORE/Winter 2026/IS 413 - Application Dev/Mission 11/Mission 11 Videos/WaterProject/backend/WaterProjectAPI/WaterProjectAPI/obj/Debug/net8.0/WaterProjectAPI.sourcelink.json
