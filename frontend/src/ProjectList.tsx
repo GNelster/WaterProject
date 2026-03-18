@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import type { Project } from './types/Project';
 
-function ProjectList() {
+function ProjectList({ selectedCategories }: { selectedCategories: string[] }) {
   const [projects, setProjects] = useState<Project[]>([]);
   const [pageSize, setPageSize] = useState<number>(10);
   const [pageNum, setPageNum] = useState<number>(1);
@@ -10,8 +10,12 @@ function ProjectList() {
 
   useEffect(() => {
     const fetchProjects = async () => {
+      const categoryParams = selectedCategories
+        .map((cat) => `projectTypes=${encodeURIComponent(cat)}`)
+        .join('&');
+
       const response = await fetch(
-        `https://localhost:5000/api/Water/AllProjects?pageSize=${pageSize}&${pageNum}`, // Back ticks allow you to use variables in the string, so you can change the page size
+        `https://localhost:5000/api/Water/AllProjects?pageSize=${pageSize}&pageNum=${pageNum}${selectedCategories.length ? `&${categoryParams}` : ''}`, // Back ticks allow you to use variables in the string, so you can change the page size
       );
       const data = await response.json();
       setProjects(data.projects);
@@ -20,11 +24,10 @@ function ProjectList() {
     };
 
     fetchProjects();
-  }, [pageSize, pageNum, totalItems]); // Watching the dependency array to see if we need to fetch new data when the page size changes. // Watches the pageNum variable to see when to fetch the next page data.
+  }, [pageSize, pageNum, totalItems, selectedCategories]); // Watching the dependency array to see if we need to fetch new data when the page size changes. // Watches the pageNum variable to see when to fetch the next page data.
 
   return (
     <>
-      <h1>Water Projects</h1>
       <br />
       {projects.map((p) => (
         <div id="projectCard" className="card" key={p.projectId}>
@@ -86,11 +89,10 @@ function ProjectList() {
         Results per page:
         <select
           value={pageSize}
-          onChange={
-            (e) => {
-              setPageSize(Number(e.target.value));
-              setPageNum(1);
-            }}
+          onChange={(e) => {
+            setPageSize(Number(e.target.value));
+            setPageNum(1);
+          }}
         >
           <option value="5">5</option>
           <option value="10">10</option>
