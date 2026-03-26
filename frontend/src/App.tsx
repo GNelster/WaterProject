@@ -1,5 +1,6 @@
 import './App.css';
 import { CartProvider } from './context/CartContext';
+import AdminProjectsPage from './pages/AdminProjectsPage';
 import CartPage from './pages/CartPage';
 import DonatePage from './pages/DonatePage';
 import ProjectsPage from './pages/ProjectsPage';
@@ -18,6 +19,7 @@ function App() {
             />
             <Route path="/projects" element={<ProjectsPage />} />
             <Route path="/cart" element={<CartPage />} />
+            <Route path="/adminprojects" element={<AdminProjectsPage />} />
           </Routes>
           {/* All routes within CartProvider are considered children of the CartProvider, in line with our CartContext. */}
         </Router>
